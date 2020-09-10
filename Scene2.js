@@ -7,6 +7,12 @@ class Scene2 extends Phaser.Scene {
     this.background = this.add.image(0,0,"background");
     this.background.setOrigin(0,0);
 
+    const helloButton = this.add.text(100, 120, 'Hello Phaser!', { fill: '#0f0' });
+    helloButton.setInteractive();
+
+    helloButton.on('pointerover', () => { console.log('pointerover'); });
+    helloButton.on('pointerout', () => { console.log('pointeryollandi'); });
+
     // dama
     this.letter1 = this.add.image(config.width/2 - 110, config.height/2 - 90, "square");
     this.letter2 = this.add.image(config.width/2 - 55, config.height/2 - 90, "square");
@@ -27,9 +33,12 @@ class Scene2 extends Phaser.Scene {
     this.letter6 = this.add.image(config.width/2 + 55, config.height/2 + 20 , "square");
 
     //letters area start
-    var cd1 = this.add.circle(config.width/2, config.height/2 + 160, 30, 0xffffff);
+    const cd1 = this.add.circle(config.width/2, config.height/2 + 160, 30, 0xffffff);
     cd1.setStrokeStyle(4, 0x3600AA);
     this.add.text(config.width/2-10, config.height/2 + 142  , "D",{font: "30px Arial", fill: "#000000 "});
+    cd1.setInteractive();
+    cd1.on('pointerover', () => { console.log('anaskim'); });
+
 
     var ca1 = this.add.circle(config.width/2 - 80, config.height/2 + 220, 30, 0xffffff);
     ca1.setStrokeStyle(4, 0x3600AA);
@@ -42,9 +51,10 @@ class Scene2 extends Phaser.Scene {
     var cm1 = this.add.circle(config.width/2, config.height/2 + 280, 30, 0xffffff).setInteractive();
     cm1.setStrokeStyle(4, 0x3600AA);
     this.add.text(config.width/2-12, config.height/2 + 265  , "M",{font: "30px Arial", fill: "#000000 "});
-    cm1.on('pointerdown', function (pointer) {
-          this.add.text(10, 30, "click : m", {font: "25px Arial", fill: "#ffffff ", align: "center", backgroundColor: "#000000"});
-    });
+    console.log(this.cache.text.get('dictionary'));
+    // cm1.on('pointerdown', function (pointer) {
+    //       this.add.text(10, 30, "click : m", {font: "25px Arial", fill: "#ffffff ", align: "center", backgroundColor: "#000000"});
+    // });
     // letters area end
 
 
