@@ -1,4 +1,5 @@
 var config = {
+  type: Phaser.WEBGL,
   width: 414,
   height: 736,
   backgroundColor: 0x000000,
